@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Switch } from './ui/switch';
 import { Label } from './ui/label';
 import { useToast } from './ui/use-toast';
-import { initializeDefaultData } from './lib/defaultData';
+import { ... } from '../lib/defaultData';
 
 const Settings = ({ darkMode, setDarkMode, setTransactions, setAccounts, setCategories, setWishlist, setShopping, setTasks, setSubscription }) => {
   const { toast } = useToast();
