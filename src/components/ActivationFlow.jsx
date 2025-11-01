@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { useToast } from './ui/use-toast';
-import { supabase } from './lib/customSupabaseClient';
+import { supabase } from '../lib/customSupabaseClient';
 import { useLocalStorage } from './hooks/useLocalStorage';
 
 const WelcomeScreen = ({ onNext }) => (
