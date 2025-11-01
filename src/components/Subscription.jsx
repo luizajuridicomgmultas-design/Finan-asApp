@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Crown, Mail, MessageCircle, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
+import { Button } from './components/ui/button';
+import { useToast } from './components/ui/use-toast';
 
 const Subscription = ({ subscription }) => {
   const { toast } = useToast();
