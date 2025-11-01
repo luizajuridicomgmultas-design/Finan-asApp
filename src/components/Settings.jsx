@@ -1,10 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Moon, Sun, Trash2, Info, CheckSquare, Crown, FolderOpen } from 'lucide-react';
-import { Button } from './components/ui/button';
-import { Switch } from './components/ui/switch';
-import { Label } from './components/ui/label';
-import { useToast } from './components/ui/use-toast';
+import { Button } from './ui/button';
+import { Switch } from './ui/switch';
+import { Label } from './ui/label';
+import { useToast } from './ui/use-toast';
 import { initializeDefaultData } from './lib/defaultData';
 
 const Settings = ({ darkMode, setDarkMode, setTransactions, setAccounts, setCategories, setWishlist, setShopping, setTasks, setSubscription }) => {
