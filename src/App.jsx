@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import Sidebar from '@/components/Sidebar';
-import MobileNav from '@/components/MobileNav';
-import Dashboard from '@/components/Dashboard';
-import Transactions from '@/components/Transactions';
-import Accounts from '@/components/Accounts';
-import Lists from '@/components/Lists';
-import Tasks from '@/components/Tasks';
-import Subscription from '@/components/Subscription';
-import Categories from '@/components/Categories';
-import Settings from '@/components/Settings';
-import { Toaster } from '@/components/ui/toaster';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { initializeDefaultData } from '@/lib/defaultData';
-import ActivationFlow from '@/components/ActivationFlow';
+import Sidebar from './components/Sidebar';
+import MobileNav from './components/MobileNav';
+import Dashboard from './components/Dashboard';
+import Transactions from './components/Transactions';
+import Accounts from './components/Accounts';
+import Lists from './components/Lists';
+import Tasks from './components/Tasks';
+import Subscription from './components/Subscription';
+import Categories from './components/Categories';
+import Settings from './components/Settings';
+import { Toaster } from './components/ui/toaster';
+import { useLocalStorage } from './hooks/useLocalStorage';
+import { initializeDefaultData } from './lib/defaultData';
+import ActivationFlow from './components/ActivationFlow';
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
