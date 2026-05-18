@@ -1,14 +1,1307 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="generator" content="Hostinger Horizons" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Hostinger Horizons</title>
-	</head>
-	<body>
-		<div id="root"></div>
-		<script type="module" src="/src/main.jsx"></script>
-	</body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Marmita Fácil</title>
+    
+    <!-- Configurações PWA e Meta Tags -->
+    <meta name="theme-color" content="#3ba571">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Marmita Fácil">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2JhNTcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdS0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==">
+    
+    <!-- Script Gerador PWA -->
+    <script>
+        const manifest = {
+            name: "Marmita Fácil",
+            short_name: "Marmitas",
+            start_url: location.href,
+            display: "standalone",
+            background_color: "#f8fafc",
+            theme_color: "#3ba571",
+            icons: [{
+                src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2JhNTcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdS0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==",
+                sizes: "192x192",
+                type: "image/svg+xml",
+                purpose: "any maskable"
+            }]
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'});
+        const link = document.createElement('link');
+        link.rel = 'manifest';
+        link.href = URL.createObjectURL(manifestBlob);
+        document.head.appendChild(link);
+    </script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            200: '#c4ebd4',
+                            300: '#96dbb5',
+                            400: '#60c390',
+                            500: '#3ba571',
+                            600: '#2a8458', 
+                            700: '#236947',
+                            800: '#1f543a',
+                            900: '#1a4531',
+                        },
+                        surface: {
+                            light: '#ffffff',
+                            DEFAULT: '#f8fafc',
+                            dark: '#0f172a'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'floating': '0 10px 40px -10px rgba(42, 132, 88, 0.15)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'slide-up': 'slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- PropTypes -->
+    <script crossorigin src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
+
+    <!-- Recharts -->
+    <script crossorigin src="https://unpkg.com/recharts@2.1.12/umd/Recharts.js"></script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: none;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        .gradient-brand {
+            background: linear-gradient(135deg, #3ba571 0%, #2a8458 100%);
+        }
+
+        .fill-current-svg svg {
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo, useCallback } = React;
+        const { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell } = window.Recharts;
+
+        // --- DADOS INICIAIS ---
+        const INITIAL_INGREDIENTS_DB = {
+            carb: [
+                { id: 'c1', name: 'Arroz Branco', costPerKg: 6.50, calPer100g: 130, proPer100g: 2.7, carbPer100g: 28 },
+                { id: 'c2', name: 'Arroz Integral', costPerKg: 8.00, calPer100g: 111, proPer100g: 2.6, carbPer100g: 23 },
+                { id: 'c3', name: 'Batata Doce', costPerKg: 4.50, calPer100g: 86, proPer100g: 1.6, carbPer100g: 20 },
+                { id: 'c4', name: 'Macarrão Int.', costPerKg: 9.00, calPer100g: 124, proPer100g: 5.3, carbPer100g: 26 },
+            ],
+            protein: [
+                { id: 'p1', name: 'Peito de Frango', costPerKg: 22.00, calPer100g: 165, proPer100g: 31, carbPer100g: 0 },
+                { id: 'p2', name: 'Patinho Moído', costPerKg: 42.00, calPer100g: 137, proPer100g: 21, carbPer100g: 0 },
+                { id: 'p3', name: 'Tofu', costPerKg: 35.00, calPer100g: 76, proPer100g: 8, carbPer100g: 1.9 },
+            ],
+            veggie: [
+                { id: 'v1', name: 'Brócolis', costPerKg: 12.00, calPer100g: 34, proPer100g: 2.8, carbPer100g: 6.6 },
+                { id: 'v2', name: 'Cenoura', costPerKg: 5.00, calPer100g: 41, proPer100g: 0.9, carbPer100g: 9.6 },
+                { id: 'v3', name: 'Mix Legumes', costPerKg: 14.00, calPer100g: 45, proPer100g: 2.0, carbPer100g: 8.0 },
+            ],
+            extra: [
+                { id: 'e1', name: 'Feijão Carioca', costPerKg: 8.50, calPer100g: 76, proPer100g: 4.8, carbPer100g: 14 },
+                { id: 'e2', name: 'Lentilha', costPerKg: 18.00, calPer100g: 116, proPer100g: 9, carbPer100g: 20 },
+            ]
+        };
+
+        const INITIAL_RECIPES_DB = [
+            { 
+                id: 1, 
+                title: 'Frango com Batata Doce Clássico', 
+                time: '40 min', 
+                cost: 7.50, 
+                img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=400&h=300', 
+                tags: ['Alta Proteína', 'Congelável'], 
+                isFavorite: true,
+                ingredients: '1kg de Peito de Frango, 800g de Batata Doce, Sal, Pimenta, Fio de azeite.',
+                instructions: '1. Corte o frango em cubos e tempere.\n2. Cozinhe a batata doce no vapor.\n3. Grelhe o frango até dourar.\n4. Divida nas marmitas com 500g totais.',
+                yield: '5 porções',
+                freezable: true,
+                calories: 380,
+                videoLink: 'https://www.youtube.com'
+            },
+            { 
+                id: 2, 
+                title: 'Patinho com Mix de Legumes', 
+                time: '35 min', 
+                cost: 9.20, 
+                img: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80&w=400&h=300', 
+                tags: ['Baixo Carbo', 'Congelável'], 
+                isFavorite: false,
+                ingredients: '1kg de Patinho Moído, 600g de Mix de Legumes (Cenoura, Vagem, Ervilha), Cebola, Alho, Tempero baiano.',
+                instructions: '1. Refogue a cebola e alho.\n2. Adicione a carne e refogue bem.\n3. Misture os legumes já cozidos no vapor.\n4. Armazene e congele.',
+                yield: '4 porções',
+                freezable: true,
+                calories: 320,
+                videoLink: ''
+            },
+        ];
+
+        // Componente Icon Helper
+        const Icon = ({ name, size = 24, className = "" }) => {
+            useEffect(() => {
+                lucide.createIcons();
+            });
+            return <span className={`inline-flex items-center justify-center ${className}`}><i data-lucide={name} width={size} height={size}></i></span>;
+        };
+
+        // --- SUBCOMPONENTES DE UI REUTILIZÁVEIS ---
+        
+        const Card = ({ children, className = "", onClick }) => {
+            const hasBg = className.includes('bg-');
+            const hasBorder = className.includes('border-');
+            const defaultClasses = `${hasBg ? '' : 'bg-white'} ${hasBorder ? '' : 'border border-slate-100'}`;
+            return (
+                <div onClick={onClick} className={`${defaultClasses} rounded-3xl p-5 shadow-soft ${onClick ? 'cursor-pointer active:scale-95 transition-transform' : ''} ${className}`}>
+                    {children}
+                </div>
+            );
+        };
+
+        const Button = ({ children, variant = 'primary', className = "", onClick, full = false, disabled = false }) => {
+            const baseStyle = "font-medium rounded-2xl py-3 px-6 transition-all duration-200 flex items-center justify-center gap-2";
+            const variants = {
+                primary: "bg-brand-600 hover:bg-brand-700 text-white shadow-md shadow-brand-500/20 active:scale-95",
+                secondary: "bg-brand-50 hover:bg-brand-100 text-brand-700 active:scale-95",
+                outline: "border-2 border-slate-200 hover:border-brand-300 text-slate-700 active:scale-95",
+                ghost: "hover:bg-slate-100 text-slate-600 active:scale-95",
+                disabled: "bg-slate-100 text-slate-400 cursor-not-allowed"
+            };
+            return (
+                <button disabled={disabled} onClick={onClick} className={`${baseStyle} ${disabled ? variants.disabled : variants[variant]} ${full ? 'w-full' : ''} ${className}`}>
+                    {children}
+                </button>
+            );
+        };
+
+        const Badge = ({ children, variant = 'gray' }) => {
+            const variants = {
+                gray: "bg-slate-100 text-slate-600",
+                green: "bg-brand-100 text-brand-700",
+                gold: "bg-amber-100 text-amber-700",
+                blue: "bg-blue-100 text-blue-700",
+            };
+            return (
+                <span className={`text-xs font-semibold px-2.5 py-1 rounded-lg ${variants[variant]}`}>
+                    {children}
+                </span>
+            );
+        };
+
+        const Modal = ({ isOpen, onClose, title, children }) => {
+            if (!isOpen) return null;
+            return (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl animate-slide-up relative max-h-[90vh] overflow-y-auto">
+                        <div className="flex justify-between items-center mb-6 sticky top-0 bg-white z-10 py-2">
+                            <h2 className="text-xl font-bold text-slate-800">{title}</h2>
+                            <button onClick={onClose} className="w-8 h-8 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full text-slate-500 transition-colors">
+                                <Icon name="x" size={18}/>
+                            </button>
+                        </div>
+                        {children}
+                    </div>
+                </div>
+            );
+        };
+
+        const InputField = ({ label, type = "text", placeholder, value, onChange, prefix, multiline = false }) => (
+            <div className="mb-4">
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">{label}</label>
+                <div className="relative">
+                    {prefix && <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">{prefix}</div>}
+                    {multiline ? (
+                        <textarea 
+                            placeholder={placeholder}
+                            value={value}
+                            onChange={onChange}
+                            rows="3"
+                            className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 px-4 outline-none transition-all focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 resize-none"
+                        ></textarea>
+                    ) : (
+                        <input 
+                            type={type} 
+                            placeholder={placeholder}
+                            value={value}
+                            onChange={onChange}
+                            className={`w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 px-4 outline-none transition-all focus:bg-white focus:border-brand-500 focus:ring-4 focus:ring-brand-500/10 ${prefix ? 'pl-10' : ''}`}
+                        />
+                    )}
+                </div>
+            </div>
+        );
+
+        // --- TELAS DO APP ---
+
+        const DashboardScreen = ({ navigateTo, batchData, batchHistory }) => {
+            // Cálculos Financeiros
+            const marmitasAtuais = batchData ? batchData.totalMeals : 0;
+            
+            const totalGastoHistorico = batchHistory.reduce((acc, lote) => acc + lote.totalCost, 0);
+            const totalMarmitasHistorico = batchHistory.reduce((acc, lote) => acc + lote.totalMeals, 0);
+            
+            // Gasto do mês atual
+            const currentMonth = new Date().getMonth();
+            const gastosMesAtual = batchHistory
+                .filter(lote => new Date(lote.date).getMonth() === currentMonth)
+                .reduce((acc, lote) => acc + lote.totalCost, 0);
+
+            const custoMedioGeral = totalMarmitasHistorico > 0 
+                ? (totalGastoHistorico / totalMarmitasHistorico).toFixed(2) 
+                : '0.00';
+
+            // Preparar dados do gráfico (Últimos 5 lotes)
+            let chartData = batchHistory.slice(0, 5).reverse().map((lote, index) => ({
+                name: `Lote ${batchHistory.length - (batchHistory.length - 1 - index)}`,
+                gasto: parseFloat(lote.totalCost.toFixed(2)),
+                marmitas: lote.totalMeals
+            }));
+
+            // Se não tiver histórico, mostra dados vazios/fictícios para manter o layout bonito
+            if (chartData.length === 0) {
+                chartData = [
+                    { name: 'Sem dados', gasto: 0, marmitas: 0 }
+                ];
+            }
+
+            return (
+                <div className="pb-24 animate-fade-in space-y-6">
+                    <div className="flex justify-between items-center px-6 pt-8 pb-2">
+                        <div>
+                            <p className="text-slate-500 text-sm font-medium">Boa tarde,</p>
+                            <h1 className="text-2xl font-bold text-slate-800">Luíza 👋</h1>
+                        </div>
+                        <div className="w-12 h-12 bg-brand-100 rounded-full flex items-center justify-center text-brand-700 shadow-sm border border-brand-200">
+                            <Icon name="user" size={20} />
+                        </div>
+                    </div>
+
+                    <div className="px-6">
+                        <div className="gradient-brand rounded-3xl p-6 text-white shadow-floating relative overflow-hidden">
+                            <div className="absolute top-0 right-0 opacity-10 transform translate-x-4 -translate-y-4">
+                                <Icon name="chef-hat" size={120} />
+                            </div>
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <Icon name="package" size={16} className="opacity-80" />
+                                    <p className="text-brand-100 font-medium text-sm">Lote atual na geladeira</p>
+                                </div>
+                                <h2 className="text-4xl font-bold mb-4">{marmitasAtuais}<span className="text-lg font-normal opacity-80"> unid.</span></h2>
+                                
+                                <div className="flex gap-4 border-t border-white/20 pt-4 mt-2">
+                                    <div className="flex-1">
+                                        <p className="text-brand-100 text-xs mb-1">Custo Médio Geral</p>
+                                        <p className="font-semibold text-lg">R$ {custoMedioGeral}</p>
+                                    </div>
+                                    <div className="w-px bg-white/20"></div>
+                                    <div className="flex-1">
+                                        <p className="text-brand-100 text-xs mb-1">Gastos do Mês</p>
+                                        <p className="font-semibold text-lg text-white">R$ {gastosMesAtual.toFixed(2)}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="px-6 grid grid-cols-2 gap-4">
+                        <Card onClick={() => navigateTo('planner')} className="flex flex-col items-center justify-center py-6 gap-3 group">
+                            <div className="w-12 h-12 bg-brand-50 rounded-2xl flex items-center justify-center text-brand-600 group-hover:scale-110 transition-transform">
+                                <Icon name="plus" size={24} />
+                            </div>
+                            <span className="font-semibold text-slate-700 text-sm">Novo Lote</span>
+                        </Card>
+                        <Card onClick={() => navigateTo('ai')} className="flex flex-col items-center justify-center py-6 gap-3 group">
+                            <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-500 group-hover:scale-110 transition-transform">
+                                <Icon name="sparkles" size={24} />
+                            </div>
+                            <span className="font-semibold text-slate-700 text-sm">IA Sugestão</span>
+                        </Card>
+                    </div>
+
+                    <div className="px-6">
+                        <div className="flex justify-between items-end mb-4">
+                            <h3 className="text-lg font-bold text-slate-800">Custo dos Últimos Lotes</h3>
+                        </div>
+                        <Card className="h-64 pt-6">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <BarChart data={chartData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#94a3b8', fontSize: 12}} dy={10} />
+                                    <YAxis axisLine={false} tickLine={false} tick={{fill: '#94a3b8', fontSize: 12}} />
+                                    <Tooltip 
+                                        cursor={{fill: '#f8fafc'}}
+                                        formatter={(value) => [`R$ ${value.toFixed(2)}`, 'Custo do Lote']}
+                                        contentStyle={{borderRadius: '16px', border: 'none', boxShadow: '0 4px 20px -2px rgba(0,0,0,0.1)'}}
+                                    />
+                                    <Bar dataKey="gasto" name="Gasto (R$)" fill="#3ba571" radius={[4, 4, 0, 0]} barSize={30} />
+                                </BarChart>
+                            </ResponsiveContainer>
+                        </Card>
+                    </div>
+                </div>
+            );
+        };
+
+        const PlannerScreen = ({ navigateTo, updateBatchData, ingredientsDb, setIngredientsDb, recipesDb }) => {
+            const [mealsCount, setMealsCount] = useState(10);
+            const [selections, setSelections] = useState({ carb: [], protein: [], veggie: [], extra: [] });
+            const [variationsPreview, setVariationsPreview] = useState([]);
+
+            const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+            const [addCategory, setAddCategory] = useState('carb');
+            const [newIng, setNewIng] = useState({ name: '', costPerKg: '', calPer100g: '', proPer100g: '', carbPer100g: '' });
+            const [ingToDelete, setIngToDelete] = useState(null);
+
+            const handleSelect = (category, id) => {
+                setSelections(prev => {
+                    const currentList = prev[category];
+                    if (currentList.includes(id)) {
+                        return { ...prev, [category]: currentList.filter(i => i !== id) };
+                    } else {
+                        return { ...prev, [category]: [...currentList, id] };
+                    }
+                });
+            };
+
+            useEffect(() => {
+                const keys = ['carb', 'protein', 'veggie', 'extra'].filter(k => selections[k].length > 0);
+                if (keys.length === 0) {
+                    setVariationsPreview([]);
+                    return;
+                }
+
+                let combinations = [{}];
+                for (const key of keys) {
+                    const nextCombinations = [];
+                    for (const combo of combinations) {
+                        for (const id of selections[key]) {
+                            nextCombinations.push({ ...combo, [key]: id });
+                        }
+                    }
+                    combinations = nextCombinations;
+                }
+
+                const maxVariations = Math.max(1, Math.floor(mealsCount / 3));
+                const targetCombosCount = Math.min(combinations.length, maxVariations);
+                
+                const selectedCombinations = [];
+                if (targetCombosCount === combinations.length) {
+                    selectedCombinations.push(...combinations);
+                } else {
+                    const step = combinations.length / targetCombosCount;
+                    for (let i = 0; i < targetCombosCount; i++) {
+                        selectedCombinations.push(combinations[Math.floor(i * step)]);
+                    }
+                }
+
+                const baseCount = Math.floor(mealsCount / targetCombosCount);
+                let remainder = mealsCount % targetCombosCount;
+
+                const weights = { carb: 35, protein: 35, veggie: 20, extra: 10 }; 
+                const totalActiveWeight = keys.reduce((sum, cat) => sum + weights[cat], 0);
+
+                const finalVariations = selectedCombinations.map((combo, index) => {
+                    let count = baseCount + (index < remainder ? 1 : 0);
+                    if (count === 0) return null; 
+
+                    let items = [];
+                    let totalCost = 0, totalCal = 0, totalPro = 0, totalCarb = 0;
+                    let primaryProtein = '';
+                    let primaryCarb = '';
+
+                    keys.forEach(cat => {
+                        let item = ingredientsDb[cat].find(i => i.id === combo[cat]);
+                        if (!item) return;
+
+                        if(cat === 'protein') primaryProtein = item.name;
+                        if(cat === 'carb') primaryCarb = item.name;
+
+                        let itemWeightGrams = Math.round((weights[cat] / totalActiveWeight) * 500);
+                        let cost = (itemWeightGrams / 1000) * item.costPerKg;
+                        let cals = (itemWeightGrams / 100) * item.calPer100g;
+                        let pro = (itemWeightGrams / 100) * item.proPer100g;
+                        let carb = (itemWeightGrams / 100) * item.carbPer100g;
+
+                        items.push({ id: item.id, category: cat, name: item.name, weight: itemWeightGrams, cost });
+                        totalCost += cost;
+                        totalCal += cals;
+                        totalPro += pro;
+                        totalCarb += carb;
+                    });
+
+                    let currentWeightSum = items.reduce((sum, item) => sum + item.weight, 0);
+                    if (currentWeightSum !== 500 && items.length > 0) {
+                        let diff = 500 - currentWeightSum;
+                        items[0].weight += diff; 
+                    }
+
+                    let suggestedRecipe = "Preparo Grelhado/Forno Padrão";
+                    if (primaryProtein) {
+                        const match = recipesDb.find(r => r.title.toLowerCase().includes(primaryProtein.toLowerCase().split(' ')[0]));
+                        if (match) suggestedRecipe = match.title;
+                    }
+
+                    return {
+                        id: `var_${index}`,
+                        name: `${primaryProtein || 'Mix Vegetariano'} com ${primaryCarb || 'Legumes'}`,
+                        count,
+                        items,
+                        totalCost,
+                        totalCal,
+                        totalPro,
+                        suggestedRecipe
+                    };
+                }).filter(Boolean);
+
+                setVariationsPreview(finalVariations);
+            }, [selections, mealsCount, ingredientsDb, recipesDb]);
+
+            const handleGenerateBatch = () => {
+                if (variationsPreview.length === 0) return;
+                
+                const listMap = {};
+                variationsPreview.forEach(variation => {
+                    variation.items.forEach(item => {
+                        if (!listMap[item.id]) {
+                            listMap[item.id] = {
+                                id: item.id,
+                                name: item.name,
+                                category: item.category,
+                                amountRequiredKg: 0,
+                                checked: false
+                            };
+                        }
+                        listMap[item.id].amountRequiredKg += (item.weight * variation.count) / 1000;
+                    });
+                });
+
+                updateBatchData({
+                    id: Date.now().toString(),
+                    date: new Date().toISOString(),
+                    variations: variationsPreview,
+                    shoppingList: Object.values(listMap),
+                    totalMeals: mealsCount,
+                    totalCost: variationsPreview.reduce((sum, v) => sum + (v.totalCost * v.count), 0)
+                });
+                navigateTo('batch');
+            };
+
+            const CategorySelector = ({ title, category, icon }) => (
+                <div className="mb-6">
+                    <div className="flex items-center justify-between mb-3 px-1">
+                        <div className="flex items-center gap-2">
+                            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500">
+                                <Icon name={icon} size={16} />
+                            </div>
+                            <h4 className="font-semibold text-slate-700">{title}</h4>
+                        </div>
+                        <span className="text-xs text-slate-400">Múltipla escolha</span>
+                    </div>
+                    <div className="flex gap-3 overflow-x-auto pb-2 px-1 snap-x">
+                        {ingredientsDb[category].map(item => {
+                            const isSelected = selections[category].includes(item.id);
+                            return (
+                                <div 
+                                    key={item.id}
+                                    onClick={() => handleSelect(category, item.id)}
+                                    className={`snap-start shrink-0 w-36 rounded-2xl p-4 border-2 transition-all cursor-pointer relative ${isSelected ? 'border-brand-500 bg-brand-50 shadow-sm' : 'border-slate-100 bg-white hover:border-slate-200'}`}
+                                >
+                                    <div className="flex justify-between items-start mb-2">
+                                        <p className={`font-medium text-sm leading-tight pr-4 ${isSelected ? 'text-brand-800' : 'text-slate-700'}`}>{item.name}</p>
+                                        {isSelected ? (
+                                            <div className="w-4 h-4 rounded-full bg-brand-500 flex items-center justify-center mt-1 shrink-0"><Icon name="check" size={10} className="text-white"/></div>
+                                        ) : (
+                                            <button onClick={(e) => { e.stopPropagation(); setIngToDelete({category, id: item.id}); }} className="text-slate-300 hover:text-red-500 p-1 -mr-2 -mt-1"><Icon name="trash-2" size={14}/></button>
+                                        )}
+                                    </div>
+                                    <p className="text-xs text-slate-500">R$ {item.costPerKg.toFixed(2)}/kg</p>
+                                </div>
+                            )
+                        })}
+                        <div onClick={() => { setAddCategory(category); setIsAddModalOpen(true); }} className="snap-start shrink-0 w-24 rounded-2xl p-4 border-2 border-dashed border-slate-300 bg-slate-50 flex flex-col items-center justify-center text-slate-500 cursor-pointer hover:bg-slate-100 hover:border-slate-400 transition-colors">
+                            <Icon name="plus" size={24} className="mb-1" />
+                            <span className="text-xs font-semibold">Novo</span>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            return (
+                <div className="pb-[220px] animate-slide-up relative">
+                    <div className="sticky top-0 bg-[#f8fafc]/90 backdrop-blur-md z-20 px-6 pt-8 pb-4 border-b border-slate-200/50">
+                        <h1 className="text-2xl font-bold text-slate-800">Montar Lote</h1>
+                        <p className="text-slate-500 text-sm mt-1">Regra de ouro: Todas as marmitas terão exatos 500g.</p>
+                    </div>
+
+                    <div className="px-6 mt-6">
+                        <Card className="mb-8 bg-brand-600 border-none text-white shadow-floating">
+                            <div className="flex justify-between items-center mb-4">
+                                <div>
+                                    <h3 className="font-semibold text-brand-50">Quantidade para a semana</h3>
+                                    <p className="text-sm opacity-80">Quantas refeições?</p>
+                                </div>
+                                <div className="bg-white/20 rounded-xl p-1 flex items-center">
+                                    <button onClick={() => setMealsCount(Math.max(1, mealsCount - 1))} className="w-8 h-8 flex items-center justify-center hover:bg-white/20 rounded-lg"><Icon name="minus" size={16}/></button>
+                                    <span className="w-10 text-center font-bold text-xl">{mealsCount}</span>
+                                    <button onClick={() => setMealsCount(mealsCount + 1)} className="w-8 h-8 flex items-center justify-center hover:bg-white/20 rounded-lg"><Icon name="plus" size={16}/></button>
+                                </div>
+                            </div>
+                        </Card>
+
+                        <CategorySelector title="Carboidrato Base" category="carb" icon="wheat" />
+                        <CategorySelector title="Proteína Principal" category="protein" icon="drumstick" />
+                        <CategorySelector title="Legumes e Fibras" category="veggie" icon="carrot" />
+                        <CategorySelector title="Complemento (Opcional)" category="extra" icon="bean" />
+                    </div>
+
+                    <div className="fixed bottom-[72px] left-0 right-0 bg-white border-t border-slate-200 shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.1)] p-4 px-6 z-30 transition-transform duration-300">
+                        {variationsPreview.length > 0 ? (
+                            <div>
+                                <div className="flex justify-between items-center mb-4">
+                                    <div>
+                                        <p className="text-sm text-slate-600 font-medium">{variationsPreview.length} variações geradas</p>
+                                        <p className="text-xs text-slate-400">Baseado nas suas seleções</p>
+                                    </div>
+                                    <div className="flex -space-x-2">
+                                        {variationsPreview.slice(0,3).map((v, i) => (
+                                            <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-brand-100 flex items-center justify-center text-brand-600 text-xs font-bold">
+                                                {v.count}x
+                                            </div>
+                                        ))}
+                                        {variationsPreview.length > 3 && (
+                                            <div className="w-8 h-8 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-slate-600 text-xs font-bold">
+                                                +{variationsPreview.length - 3}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                                <Button onClick={handleGenerateBatch} full>Gerar Lote de Marmitas</Button>
+                            </div>
+                        ) : (
+                            <div className="text-center py-4">
+                                <p className="text-slate-500 mb-2">Selecione ingredientes para gerar combinações.</p>
+                                <Button disabled full variant="disabled">Aguardando seleção...</Button>
+                            </div>
+                        )}
+                    </div>
+
+                    <Modal isOpen={!!ingToDelete} onClose={() => setIngToDelete(null)} title="Excluir Ingrediente">
+                        <p className="text-slate-600 mb-6">Tem certeza que deseja excluir este ingrediente?</p>
+                        <div className="flex gap-3">
+                            <Button variant="ghost" className="flex-1" onClick={() => setIngToDelete(null)}>Cancelar</Button>
+                            <Button variant="primary" className="flex-1 bg-red-500 hover:bg-red-600 shadow-red-500/20" onClick={() => {
+                                setIngredientsDb(prev => ({
+                                    ...prev,
+                                    [ingToDelete.category]: prev[ingToDelete.category].filter(i => i.id !== ingToDelete.id)
+                                }));
+                                setSelections(prev => ({
+                                    ...prev,
+                                    [ingToDelete.category]: prev[ingToDelete.category].filter(selectedId => selectedId !== ingToDelete.id)
+                                }));
+                                setIngToDelete(null);
+                            }}>Excluir</Button>
+                        </div>
+                    </Modal>
+                </div>
+            );
+        };
+
+        const BatchScreen = ({ batchData, archiveBatch, navigateTo }) => {
+            const [view, setView] = useState('variations'); 
+            const [list, setList] = useState(batchData?.shoppingList || []);
+            const [completedVars, setCompletedVars] = useState([]);
+
+            useEffect(() => {
+                if (batchData?.shoppingList) setList(batchData.shoppingList);
+            }, [batchData]);
+
+            if (!batchData) {
+                return (
+                    <div className="h-screen flex flex-col items-center justify-center px-6 text-center animate-fade-in pb-20">
+                        <div className="w-24 h-24 bg-brand-50 rounded-full flex items-center justify-center text-brand-300 mb-6">
+                            <Icon name="package-open" size={40} />
+                        </div>
+                        <h2 className="text-xl font-bold text-slate-800 mb-2">Nenhum lote em andamento</h2>
+                        <p className="text-slate-500 mb-8 max-w-[250px]">Vá para a aba Planejar ou IA para montar seu próximo lote.</p>
+                    </div>
+                );
+            }
+
+            const toggleCheck = (id) => {
+                setList(list.map(item => item.id === id ? { ...item, checked: !item.checked } : item));
+            };
+
+            const toggleVariation = (id) => {
+                setCompletedVars(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
+            };
+
+            const handleFinish = () => {
+                archiveBatch(batchData);
+                navigateTo('dashboard');
+            };
+
+            const totalEstimated = batchData.totalCost || 0;
+            const progress = list.length > 0 ? Math.round((list.filter(i => i.checked).length / list.length) * 100) : 0;
+            const isAllCompleted = completedVars.length === batchData.variations.length;
+
+            return (
+                <div className="pb-[120px] animate-slide-up">
+                    <div className="bg-brand-600 pt-10 pb-4 px-6 text-white shadow-sm">
+                        <h1 className="text-2xl font-bold mb-1">Seu Lote Atual</h1>
+                        <p className="text-brand-100 text-sm mb-6">{batchData.totalMeals} marmitas • R$ {totalEstimated.toFixed(2)} estimado</p>
+                        
+                        <div className="flex p-1 bg-black/20 rounded-xl">
+                            <button onClick={() => setView('variations')} className={`flex-1 py-2 text-sm font-medium rounded-lg transition-colors ${view === 'variations' ? 'bg-white text-brand-700 shadow-sm' : 'text-brand-100 hover:text-white'}`}>
+                                Variações
+                            </button>
+                            <button onClick={() => setView('list')} className={`flex-1 py-2 text-sm font-medium rounded-lg transition-colors ${view === 'list' ? 'bg-white text-brand-700 shadow-sm' : 'text-brand-100 hover:text-white'}`}>
+                                Lista Compras
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="p-6">
+                        {view === 'variations' && (
+                            <div className="space-y-4">
+                                {batchData.variations.map((v) => {
+                                    const isCompleted = completedVars.includes(v.id);
+                                    return (
+                                    <Card key={v.id} className={`border shadow-sm transition-all duration-300 ${isCompleted ? 'bg-slate-50 border-brand-200 opacity-75' : 'border-slate-200'}`}>
+                                        <div className="flex justify-between items-start mb-3 border-b border-slate-100 pb-3">
+                                            <div>
+                                                <Badge variant={isCompleted ? "green" : "blue"}>{v.count} Marmitas</Badge>
+                                                <h3 className={`font-bold mt-2 transition-all ${isCompleted ? 'text-slate-500 line-through' : 'text-slate-800'}`}>{v.name}</h3>
+                                            </div>
+                                            <div className="text-right flex flex-col items-end gap-2">
+                                                <button 
+                                                    onClick={() => toggleVariation(v.id)}
+                                                    className={`w-8 h-8 rounded-full flex items-center justify-center border-2 transition-colors ${isCompleted ? 'bg-brand-500 border-brand-500 text-white' : 'border-slate-300 text-slate-300 hover:border-brand-400'}`}
+                                                >
+                                                    {isCompleted && <Icon name="check" size={16} />}
+                                                </button>
+                                                <span className="block text-lg font-bold text-brand-600">500g</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="space-y-2 mb-4">
+                                            {v.items.map(item => (
+                                                <div key={item.id} className="flex justify-between text-sm">
+                                                    <span className="text-slate-600">{item.name}</span>
+                                                    <span className="font-medium text-slate-800">{item.weight}g</span>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        <div className="bg-slate-50 p-3 rounded-xl flex items-center gap-3">
+                                            <Icon name="chef-hat" size={18} className="text-slate-400" />
+                                            <div>
+                                                <p className="text-xs text-slate-500">Receita Sugerida</p>
+                                                <p className="text-sm font-semibold text-slate-700">{v.suggestedRecipe}</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex gap-4 mt-4 pt-3 border-t border-slate-100">
+                                            <div>
+                                                <p className="text-[10px] text-slate-400 uppercase">Custo Unit.</p>
+                                                <p className="font-semibold text-slate-700">R$ {v.totalCost.toFixed(2)}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] text-slate-400 uppercase">Calorias</p>
+                                                <p className="font-semibold text-slate-700">{Math.round(v.totalCal)} kcal</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] text-slate-400 uppercase">Proteína</p>
+                                                <p className="font-semibold text-brand-600">{Math.round(v.totalPro)}g</p>
+                                            </div>
+                                        </div>
+                                    </Card>
+                                )})}
+                            </div>
+                        )}
+
+                        {view === 'list' && (
+                            <div className="animate-fade-in">
+                                <div className="bg-white border border-slate-200 rounded-2xl p-4 mb-6">
+                                    <div className="flex justify-between items-end mb-2">
+                                        <span className="text-sm font-medium text-slate-600">Progresso</span>
+                                        <span className="font-bold text-brand-600">{progress}%</span>
+                                    </div>
+                                    <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
+                                        <div className="h-full bg-brand-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-3">
+                                    {list.map(item => (
+                                        <Card key={item.id} className={`p-4 flex items-center gap-4 transition-all duration-300 ${item.checked ? 'opacity-60 bg-slate-50 scale-[0.98]' : ''}`}>
+                                            <button 
+                                                onClick={() => toggleCheck(item.id)}
+                                                className={`w-6 h-6 rounded-md flex items-center justify-center border-2 transition-colors shrink-0 ${item.checked ? 'bg-brand-500 border-brand-500 text-white' : 'border-slate-300'}`}
+                                            >
+                                                {item.checked && <Icon name="check" size={14} />}
+                                            </button>
+                                            <div className="flex-1">
+                                                <p className={`font-semibold text-slate-800 ${item.checked ? 'line-through text-slate-500' : ''}`}>{item.name}</p>
+                                                <p className="text-sm text-brand-600 font-medium">{item.amountRequiredKg.toFixed(2)} kg</p>
+                                            </div>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Botão Fixo de Concluir Lote */}
+                    <div className="fixed bottom-[72px] left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200 p-4 px-6 z-30">
+                        <Button 
+                            onClick={handleFinish} 
+                            full 
+                            className={isAllCompleted ? 'animate-pulse-slow bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/30' : ''}
+                        >
+                            <Icon name="check-circle-2" /> Finalizar e Arquivar Lote
+                        </Button>
+                    </div>
+                </div>
+            );
+        };
+
+        const AIScreen = ({ navigateTo, updateBatchData, recipesDb, ingredientsDb }) => {
+            const [loading, setLoading] = useState(false);
+            const [suggestion, setSuggestion] = useState(null);
+            
+            const [aiForm, setAiForm] = useState({
+                mealsCount: 10,
+                preferences: ['custo_beneficio'] // Agora é um array para permitir múltipla seleção
+            });
+
+            const handleGenerate = () => {
+                setLoading(true);
+                setSuggestion(null);
+                
+                // Simula processamento da IA baseado nos inputs
+                setTimeout(() => {
+                    let recipeName1 = "Frango Fit";
+                    let recipeName2 = "Patinho Básico";
+                    
+                    if (aiForm.preferences.includes('favoritos')) {
+                        const favs = recipesDb.filter(r => r.isFavorite);
+                        if(favs.length > 0) recipeName1 = favs[0].title;
+                        if(favs.length > 1) recipeName2 = favs[1].title;
+                    }
+
+                    if (aiForm.preferences.includes('se_permitir')) {
+                        recipeName1 = "Escondidinho Especial";
+                        recipeName2 = "Lasanha Bolonhesa Caseira";
+                    }
+
+                    const mockAiBatch = {
+                        id: Date.now().toString(),
+                        date: new Date().toISOString(),
+                        totalMeals: aiForm.mealsCount,
+                        variations: [
+                            {
+                                id: 'ai_1',
+                                name: "Opção " + (aiForm.preferences.includes('custo_beneficio') ? 'Econômica' : 'Especial') + " 1",
+                                count: Math.ceil(aiForm.mealsCount / 2),
+                                items: [
+                                    { id: 'p1', name: "Peito de Frango", weight: 180, cost: 3.96 },
+                                    { id: 'c3', name: "Batata Doce", weight: 170, cost: 0.76 },
+                                    { id: 'v1', name: "Brócolis", weight: 100, cost: 1.20 },
+                                    { id: 'e1', name: "Feijão Carioca", weight: 50, cost: 0.42 }
+                                ],
+                                totalCost: 6.34,
+                                totalCal: 420,
+                                totalPro: 55,
+                                suggestedRecipe: recipeName1
+                            },
+                            {
+                                id: 'ai_2',
+                                name: "Opção " + (aiForm.preferences.includes('custo_beneficio') ? 'Econômica' : 'Especial') + " 2",
+                                count: Math.floor(aiForm.mealsCount / 2),
+                                items: [
+                                    { id: 'p2', name: "Patinho Moído", weight: 180, cost: 7.56 },
+                                    { id: 'c1', name: "Arroz Branco", weight: 170, cost: 1.10 },
+                                    { id: 'v2', name: "Cenoura", weight: 150, cost: 0.75 }
+                                ],
+                                totalCost: 9.41,
+                                totalCal: 380,
+                                totalPro: 38,
+                                suggestedRecipe: recipeName2
+                            }
+                        ]
+                    };
+
+                    mockAiBatch.totalCost = mockAiBatch.variations.reduce((sum, v) => sum + (v.totalCost * v.count), 0);
+
+                    // Gerar lista agregada para a IA
+                    const listMap = {};
+                    mockAiBatch.variations.forEach(variation => {
+                        variation.items.forEach(item => {
+                            if (!listMap[item.id]) {
+                                listMap[item.id] = { id: item.id, name: item.name, amountRequiredKg: 0, checked: false };
+                            }
+                            listMap[item.id].amountRequiredKg += (item.weight * variation.count) / 1000;
+                        });
+                    });
+                    mockAiBatch.shoppingList = Object.values(listMap);
+
+                    setSuggestion(mockAiBatch);
+                    setLoading(false);
+                }, 1800);
+            };
+
+            const useCombination = () => {
+                if (suggestion) {
+                    updateBatchData(suggestion);
+                    navigateTo('batch');
+                }
+            };
+
+            const PreferenceBtn = ({ value, label }) => {
+                const isSelected = aiForm.preferences.includes(value);
+                
+                const togglePreference = () => {
+                    setAiForm(prev => {
+                        if (prev.preferences.includes(value)) {
+                            return { ...prev, preferences: prev.preferences.filter(p => p !== value) };
+                        } else {
+                            return { ...prev, preferences: [...prev.preferences, value] };
+                        }
+                    });
+                };
+
+                return (
+                    <button 
+                        onClick={togglePreference}
+                        className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${isSelected ? 'bg-brand-600 text-white shadow-md' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'}`}
+                    >
+                        {label}
+                    </button>
+                );
+            };
+
+            return (
+                <div className="pb-24 animate-slide-up px-6 pt-8">
+                    <div className="text-center mb-8">
+                        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 text-amber-500 mb-4 shadow-inner">
+                            <Icon name="sparkles" size={32} />
+                        </div>
+                        <h1 className="text-2xl font-bold text-slate-800 mb-2">IA Cheff</h1>
+                        <p className="text-slate-500 text-sm max-w-xs mx-auto">Deixe a inteligência artificial montar as melhores combinações para a sua semana.</p>
+                    </div>
+
+                    {!suggestion && !loading && (
+                        <div className="space-y-6">
+                            <InputField 
+                                label="Quantas marmitas você quer?" 
+                                type="number" 
+                                value={aiForm.mealsCount} 
+                                onChange={e => setAiForm({...aiForm, mealsCount: parseInt(e.target.value) || 0})}
+                            />
+                            
+                            <div>
+                                <label className="block text-sm font-semibold text-slate-700 mb-2">Focos inteligentes (selecione vários)</label>
+                                <div className="flex flex-wrap gap-2">
+                                    <PreferenceBtn value="custo_beneficio" label="Custo-Benefício 💰" />
+                                    <PreferenceBtn value="favoritos" label="Meus Favoritos ⭐" />
+                                    <PreferenceBtn value="barata" label="Mais Barata" />
+                                    <PreferenceBtn value="rapida" label="Rápida" />
+                                    <PreferenceBtn value="menos_legumes" label="Menos Legumes" />
+                                    <PreferenceBtn value="proteina" label="Alta Proteína" />
+                                    <PreferenceBtn value="variada" label="Bem Variada" />
+                                    <PreferenceBtn value="se_permitir" label="Se Permitir 🤤" />
+                                </div>
+                              
+                            </div>
+
+                            <Button onClick={handleGenerate} className="w-full py-4 text-lg bg-slate-800 hover:bg-slate-900 shadow-xl shadow-slate-900/20 mt-4">
+                                <Icon name="wand-2" /> Gerar Cardápio
+                            </Button>
+                        </div>
+                    )}
+
+                    {loading && (
+                        <div className="flex flex-col items-center justify-center py-12 space-y-4">
+                            <div className="w-12 h-12 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"></div>
+                            <p className="text-brand-600 font-medium animate-pulse">Lendo o seu histórico e calculando...</p>
+                        </div>
+                    )}
+
+                    {suggestion && !loading && (
+                        <div className="animate-fade-in space-y-6">
+                            <div className="bg-amber-50 border border-amber-200 rounded-3xl p-5 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-4 opacity-10"><Icon name="sparkles" size={80} /></div>
+                                <Badge variant="gold">Sugestão Pronta!</Badge>
+                                <h3 className="text-xl font-bold text-slate-800 mt-3 mb-2">Lote Personalizado IA</h3>
+                                <p className="text-slate-600 text-sm mb-4">A IA criou {suggestion.variations.length} variações para as suas {suggestion.totalMeals} refeições.</p>
+                                
+                                <div className="space-y-3 mb-4 relative z-10">
+                                    {suggestion.variations.map(v => (
+                                        <div key={v.id} className="bg-white p-3 rounded-xl shadow-sm border border-slate-100">
+                                            <div className="flex justify-between items-center mb-1">
+                                                <span className="font-bold text-slate-700 text-sm">{v.name}</span>
+                                                <Badge variant="blue">{v.count}x</Badge>
+                                            </div>
+                                            <p className="text-xs text-slate-500 truncate">{v.items.map(i => i.name).join(', ')}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            <div className="flex gap-3">
+                                <Button variant="outline" className="flex-1" onClick={() => setSuggestion(null)}>Refazer</Button>
+                                <Button className="flex-1" onClick={useCombination}>Usar Combinação</Button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+
+        const RecipesScreen = ({ recipesDb, setRecipesDb }) => {
+            const [isAddOpen, setIsAddOpen] = useState(false);
+            const [selectedRecipe, setSelectedRecipe] = useState(null);
+            const [searchTerm, setSearchTerm] = useState('');
+            const [editingId, setEditingId] = useState(null);
+            const [recipeToDelete, setRecipeToDelete] = useState(null);
+
+            const [newRecipe, setNewRecipe] = useState({ 
+                title: '', ingredients: '', instructions: '', 
+                yield: '', time: '', cost: '', calories: '', 
+                tags: '', freezable: true, videoLink: '' 
+            });
+
+            const toggleFavorite = (id) => {
+                setRecipesDb(recipesDb.map(r => r.id === id ? { ...r, isFavorite: !r.isFavorite } : r));
+            };
+
+            const saveNewRecipe = () => {
+                if(!newRecipe.title) return;
+                const recipe = {
+                    id: editingId ? editingId : Date.now(),
+                    title: newRecipe.title,
+                    ingredients: newRecipe.ingredients,
+                    instructions: newRecipe.instructions,
+                    yield: newRecipe.yield || 'N/A',
+                    time: newRecipe.time || 'N/A',
+                    cost: parseFloat(newRecipe.cost) || 0,
+                    calories: parseInt(newRecipe.calories) || 0,
+                    freezable: newRecipe.freezable,
+                    videoLink: newRecipe.videoLink,
+                    img: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=400&h=300',
+                    tags: typeof newRecipe.tags === 'string' ? newRecipe.tags.split(',').map(t => t.trim()).filter(t => t) : newRecipe.tags,
+                    isFavorite: false
+                };
+                if (recipe.freezable && !recipe.tags.includes('Congelável')) recipe.tags.push('Congelável');
+
+                if (editingId) {
+                    setRecipesDb(recipesDb.map(r => r.id === editingId ? { ...recipe, isFavorite: r.isFavorite, img: r.img } : r));
+                    setEditingId(null);
+                } else {
+                    setRecipesDb([recipe, ...recipesDb]);
+                }
+                
+                setIsAddOpen(false);
+                setNewRecipe({ title: '', ingredients: '', instructions: '', yield: '', time: '', cost: '', calories: '', tags: '', freezable: true, videoLink: '' });
+            };
+
+            const filteredRecipes = recipesDb.filter(r => 
+                r.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                r.tags.some(t => t.toLowerCase().includes(searchTerm.toLowerCase()))
+            );
+
+            return (
+                <div className="pb-24 animate-slide-up">
+                    <div className="px-6 pt-8 pb-4 bg-white sticky top-0 z-10 border-b border-slate-100">
+                        <div className="flex justify-between items-center mb-4">
+                            <div>
+                                <h1 className="text-2xl font-bold text-slate-800">Receitas Base</h1>
+                                <p className="text-slate-500 text-sm mt-1">Sua biblioteca de preparos.</p>
+                            </div>
+                            <button onClick={() => { setEditingId(null); setNewRecipe({ title: '', ingredients: '', instructions: '', yield: '', time: '', cost: '', calories: '', tags: '', freezable: true, videoLink: '' }); setIsAddOpen(true); }} className="w-10 h-10 bg-brand-50 rounded-full flex items-center justify-center text-brand-600 hover:bg-brand-100 transition-colors shadow-sm shrink-0">
+                                <Icon name="plus" size={20} />
+                            </button>
+                        </div>
+                        <InputField placeholder="Buscar receitas ou tags..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} prefix={<Icon name="search" size={18} />} />
+                    </div>
+
+                    <div className="p-6 space-y-6">
+                        {filteredRecipes.map(recipe => (
+                            <Card key={recipe.id} onClick={() => setSelectedRecipe(recipe)} className="p-0 overflow-hidden group cursor-pointer border-none shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] relative">
+                                <button 
+                                    onClick={(e) => { e.stopPropagation(); toggleFavorite(recipe.id); }}
+                                    className="absolute top-3 right-3 w-9 h-9 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-amber-500 shadow-sm z-10 hover:scale-110 transition-transform"
+                                >
+                                    <Icon name="star" size={18} className={recipe.isFavorite ? "fill-current-svg" : ""} />
+                                </button>
+
+                                <div className="h-40 w-full relative overflow-hidden">
+                                    <img src={recipe.img} alt={recipe.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                    <div className="absolute bottom-3 left-4 flex flex-wrap gap-2 pr-4">
+                                        {recipe.tags.map(tag => (
+                                            <span key={tag} className="bg-white/20 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wide">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="p-5">
+                                    <h3 className="font-bold text-lg text-slate-800 mb-3 leading-tight pr-8">{recipe.title}</h3>
+                                    <div className="flex items-center gap-4 text-sm text-slate-500 font-medium">
+                                        <div className="flex items-center gap-1"><Icon name="clock" size={14} /> {recipe.time}</div>
+                                        <div className="flex items-center gap-1 text-brand-600"><Icon name="banknote" size={14} /> R$ {typeof recipe.cost === 'number' ? recipe.cost.toFixed(2) : recipe.cost}</div>
+                                    </div>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+
+                    <Modal isOpen={isAddOpen} onClose={() => setIsAddOpen(false)} title="Nova Receita">
+                        <div className="space-y-1">
+                            <InputField label="Nome da Receita" placeholder="Ex: Frango ao Curry" value={newRecipe.title} onChange={(e) => setNewRecipe({...newRecipe, title: e.target.value})} />
+                            
+                            <InputField label="Ingredientes" placeholder="Liste os ingredientes e quantidades..." multiline value={newRecipe.ingredients} onChange={(e) => setNewRecipe({...newRecipe, ingredients: e.target.value})} />
+                            <InputField label="Modo de Preparo" placeholder="Passo a passo do preparo..." multiline value={newRecipe.instructions} onChange={(e) => setNewRecipe({...newRecipe, instructions: e.target.value})} />
+                            
+                            <div className="grid grid-cols-2 gap-4">
+                                <InputField label="Rendimento" placeholder="Ex: 5 porções" value={newRecipe.yield} onChange={(e) => setNewRecipe({...newRecipe, yield: e.target.value})} />
+                                <InputField label="Tempo (min)" placeholder="40 min" value={newRecipe.time} onChange={(e) => setNewRecipe({...newRecipe, time: e.target.value})} />
+                                <InputField label="Custo Est." placeholder="0.00" type="number" prefix="R$" value={newRecipe.cost} onChange={(e) => setNewRecipe({...newRecipe, cost: e.target.value})} />
+                                <InputField label="Calorias Est." placeholder="350" type="number" prefix="kcal" value={newRecipe.calories} onChange={(e) => setNewRecipe({...newRecipe, calories: e.target.value})} />
+                            </div>
+
+                            <div className="flex items-center gap-3 mb-4 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                                <input type="checkbox" id="congelavel" checked={newRecipe.freezable} onChange={(e) => setNewRecipe({...newRecipe, freezable: e.target.checked})} className="w-5 h-5 accent-brand-600 rounded" />
+                                <label htmlFor="congelavel" className="text-sm font-semibold text-slate-700">Esta receita é congelável</label>
+                            </div>
+
+                            <InputField label="Tags (separadas por vírgula)" placeholder="Low Carb, Barata..." value={newRecipe.tags} onChange={(e) => setNewRecipe({...newRecipe, tags: e.target.value})} />
+                            
+                            <InputField label="Link do Vídeo (Opcional)" placeholder="https://youtube.com/..." type="url" value={newRecipe.videoLink} onChange={(e) => setNewRecipe({...newRecipe, videoLink: e.target.value})} />
+                            
+                            <Button onClick={saveNewRecipe} full className="mt-6">Adicionar Receita</Button>
+                        </div>
+                    </Modal>
+
+                    {selectedRecipe && (
+                        <Modal isOpen={!!selectedRecipe} onClose={() => setSelectedRecipe(null)} title="Detalhes da Receita">
+                            <div className="space-y-6">
+                                <div>
+                                    <h3 className="text-2xl font-bold text-slate-800 leading-tight">{selectedRecipe.title}</h3>
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {selectedRecipe.freezable && <Badge variant="green"><Icon name="snowflake" size={12} className="inline mr-1" /> Congelável</Badge>}
+                                        <Badge variant="gray">{selectedRecipe.yield}</Badge>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-3 gap-2 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                    <div className="text-center">
+                                        <Icon name="clock" size={20} className="text-slate-400 mx-auto mb-1" />
+                                        <p className="text-xs font-semibold text-slate-700">{selectedRecipe.time}</p>
+                                    </div>
+                                    <div className="text-center border-l border-r border-slate-200">
+                                        <Icon name="banknote" size={20} className="text-brand-500 mx-auto mb-1" />
+                                        <p className="text-xs font-semibold text-slate-700">R$ {typeof selectedRecipe.cost === 'number' ? selectedRecipe.cost.toFixed(2) : selectedRecipe.cost}</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <Icon name="flame" size={20} className="text-orange-400 mx-auto mb-1" />
+                                        <p className="text-xs font-semibold text-slate-700">{selectedRecipe.calories} kcal</p>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-2"><Icon name="shopping-bag" size={18} className="text-brand-600"/> Ingredientes</h4>
+                                    <p className="text-sm text-slate-600 whitespace-pre-line bg-white border border-slate-100 p-4 rounded-xl leading-relaxed">
+                                        {selectedRecipe.ingredients || "Ingredientes não especificados."}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h4 className="font-bold text-slate-800 flex items-center gap-2 mb-2"><Icon name="chef-hat" size={18} className="text-brand-600"/> Modo de Preparo</h4>
+                                    <p className="text-sm text-slate-600 whitespace-pre-line bg-white border border-slate-100 p-4 rounded-xl leading-relaxed">
+                                        {selectedRecipe.instructions || "Modo de preparo não especificado."}
+                                    </p>
+                                </div>
+
+                                {selectedRecipe.videoLink && (
+                                    <a href={selectedRecipe.videoLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full py-3 bg-red-50 text-red-600 rounded-xl font-semibold border border-red-100 hover:bg-red-100 transition-colors active:scale-95">
+                                        <Icon name="youtube" size={18} /> Assistir Vídeo da Receita
+                                    </a>
+                                )}
+
+                                <div className="flex gap-3 mt-6 pt-6 border-t border-slate-100">
+                                    <Button variant="outline" className="flex-1 text-slate-500 border-slate-200" onClick={() => setRecipeToDelete(selectedRecipe.id)}>
+                                        <Icon name="trash-2" size={18} /> Excluir
+                                    </Button>
+                                    <Button variant="secondary" className="flex-1" onClick={() => {
+                                        setEditingId(selectedRecipe.id);
+                                        setNewRecipe({...selectedRecipe, tags: selectedRecipe.tags.join(', ')});
+                                        setSelectedRecipe(null);
+                                        setIsAddOpen(true);
+                                    }}>
+                                        <Icon name="edit-3" size={18} /> Editar
+                                    </Button>
+                                </div>
+                            </div>
+                        </Modal>
+                    )}
+
+                    <Modal isOpen={!!recipeToDelete} onClose={() => setRecipeToDelete(null)} title="Excluir Receita">
+                        <p className="text-slate-600 mb-6">Tem certeza que deseja excluir esta receita permanentemente?</p>
+                        <div className="flex gap-3">
+                            <Button variant="ghost" className="flex-1" onClick={() => setRecipeToDelete(null)}>Cancelar</Button>
+                            <Button variant="primary" className="flex-1 bg-red-500 hover:bg-red-600 shadow-red-500/20" onClick={() => {
+                                setRecipesDb(prev => prev.filter(r => r.id !== recipeToDelete));
+                                setRecipeToDelete(null);
+                                setSelectedRecipe(null);
+                            }}>Excluir</Button>
+                        </div>
+                    </Modal>
+                </div>
+            );
+        };
+
+        const App = () => {
+            const [activeTab, setActiveTab] = useState('dashboard');
+            
+            const [ingredientsDb, setIngredientsDb] = useState(() => {
+                const saved = localStorage.getItem('mf_ingredients');
+                return saved ? JSON.parse(saved) : INITIAL_INGREDIENTS_DB;
+            });
+            const [recipesDb, setRecipesDb] = useState(() => {
+                const saved = localStorage.getItem('mf_recipes');
+                return saved ? JSON.parse(saved) : INITIAL_RECIPES_DB;
+            });
+            const [batchData, setBatchData] = useState(() => {
+                const saved = localStorage.getItem('mf_batch');
+                return saved ? JSON.parse(saved) : null;
+            });
+            const [batchHistory, setBatchHistory] = useState(() => {
+                const saved = localStorage.getItem('mf_batchHistory');
+                return saved ? JSON.parse(saved) : [];
+            });
+
+            // Salvamento Automático
+            useEffect(() => { localStorage.setItem('mf_ingredients', JSON.stringify(ingredientsDb)); }, [ingredientsDb]);
+            useEffect(() => { localStorage.setItem('mf_recipes', JSON.stringify(recipesDb)); }, [recipesDb]);
+            useEffect(() => { localStorage.setItem('mf_batch', JSON.stringify(batchData)); }, [batchData]);
+            useEffect(() => { localStorage.setItem('mf_batchHistory', JSON.stringify(batchHistory)); }, [batchHistory]);
+
+            const updateBatchData = (data) => {
+                setBatchData(data);
+            };
+
+            const archiveBatch = (data) => {
+                setBatchHistory([data, ...batchHistory]);
+                setBatchData(null); // Limpa o lote atual ao arquivar
+            };
+
+            const NavItem = ({ id, icon, label }) => {
+                const isActive = activeTab === id;
+                return (
+                    <button 
+                        onClick={() => setActiveTab(id)}
+                        className={`flex flex-col items-center justify-center w-full h-full space-y-1 transition-all duration-300 ${isActive ? 'text-brand-600 scale-110' : 'text-slate-400 hover:text-slate-600'}`}
+                    >
+                        <div className={`relative ${isActive ? 'drop-shadow-md' : ''}`}>
+                            <Icon name={icon} size={22} className={isActive ? 'fill-brand-50' : ''} />
+                            {isActive && <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1 h-1 bg-brand-600 rounded-full"></div>}
+                        </div>
+                        <span className={`text-[10px] font-semibold ${isActive ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>{label}</span>
+                    </button>
+                );
+            };
+
+            return (
+                <div className="min-h-screen relative max-w-md mx-auto bg-[#f8fafc] shadow-2xl overflow-hidden flex flex-col">
+                    
+                    <div className="flex-1 overflow-y-auto overflow-x-hidden">
+                        {activeTab === 'dashboard' && <DashboardScreen navigateTo={setActiveTab} batchData={batchData} batchHistory={batchHistory} />}
+                        {activeTab === 'planner' && <PlannerScreen navigateTo={setActiveTab} updateBatchData={updateBatchData} ingredientsDb={ingredientsDb} setIngredientsDb={setIngredientsDb} recipesDb={recipesDb} />}
+                        {activeTab === 'batch' && <BatchScreen batchData={batchData} archiveBatch={archiveBatch} navigateTo={setActiveTab} />}
+                        {activeTab === 'ai' && <AIScreen navigateTo={setActiveTab} updateBatchData={updateBatchData} recipesDb={recipesDb} ingredientsDb={ingredientsDb} />}
+                        {activeTab === 'recipes' && <RecipesScreen recipesDb={recipesDb} setRecipesDb={setRecipesDb} />}
+                    </div>
+
+                    <div className="fixed bottom-0 w-full max-w-md bg-white border-t border-slate-100 h-16 pb-safe pt-1 z-50 flex justify-around items-center px-2 pb-safe-area shadow-[0_-10px_40px_-10px_rgba(0,0,0,0.05)]">
+                        <NavItem id="dashboard" icon="layout-dashboard" label="Resumo" />
+                        <NavItem id="planner" icon="calendar-plus" label="Planejar" />
+                        <div className="relative -top-5">
+                            <button 
+                                onClick={() => setActiveTab('ai')}
+                                className={`w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg transition-transform active:scale-95 ${activeTab === 'ai' ? 'bg-slate-800 shadow-slate-800/30 scale-105' : 'bg-brand-500 shadow-brand-500/30'}`}
+                            >
+                                <Icon name="sparkles" size={24} className="fill-white/20" />
+                            </button>
+                        </div>
+                        <NavItem id="batch" icon="package-open" label="Meu Lote" />
+                        <NavItem id="recipes" icon="chef-hat" label="Receitas" />
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
 </html>
