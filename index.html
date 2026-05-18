@@ -10,7 +10,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Marmita Fácil">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2JhNTcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdS0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==">
+    <!-- Aponta para a imagem do ícone que você deve salvar na mesma pasta -->
+    <link rel="apple-touch-icon" href="icone.png">
     
     <!-- Script Gerador PWA -->
     <script>
@@ -19,12 +20,12 @@
             short_name: "Marmitas",
             start_url: location.href,
             display: "standalone",
-            background_color: "#f8fafc",
+            background_color: "#3ba571",
             theme_color: "#3ba571",
             icons: [{
-                src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2JhNTcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdS0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==",
-                sizes: "192x192",
-                type: "image/svg+xml",
+                src: "icone.png", // Usa a sua imagem salva como icone.png
+                sizes: "192x192 512x512",
+                type: "image/png",
                 purpose: "any maskable"
             }]
         };
@@ -205,6 +206,37 @@
 
         // --- SUBCOMPONENTES DE UI REUTILIZÁVEIS ---
         
+        // Tela de Abertura (Splash Screen)
+        const SplashScreen = () => {
+            const [isFading, setIsFading] = useState(false);
+
+            useEffect(() => {
+                // Inicia o fade out após 2 segundos
+                const timer = setTimeout(() => setIsFading(true), 2000);
+                return () => clearTimeout(timer);
+            }, []);
+
+            return (
+                <div className={`fixed inset-0 z-[999] bg-gradient-to-b from-[#4bc081] to-[#2a8458] flex flex-col items-center justify-center transition-opacity duration-500 ${isFading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+                    <div className="w-40 h-40 bg-white/20 backdrop-blur-md p-3 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] mb-8 flex items-center justify-center relative">
+                        {/* Imagem do Ícone. Fallback incluído para caso o usuário ainda não tenha salvo a imagem 'icone.png' */}
+                        <img 
+                            src="icone.png" 
+                            alt="Marmita Fácil" 
+                            className="w-full h-full object-cover rounded-[20px]" 
+                            onError={(e) => { 
+                                e.target.onerror = null; 
+                                e.target.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjM2JhNTcxIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3IDIxdS0yYTQgNCAwIDAgMC00LTRINWE0IDQgMCAwIDAtNCA0djIiLz48Y2lyY2xlIGN4PSI5IiBjeT0iNyIgcj0iNCIvPjxwYXRoIGQ9Ik0yMyAyMXYtMmE0IDQgMCAwIDAtMy0zLjg3Ii8+PHBhdGggZD0iTTE2IDMuMTNhNCA0IDAgMCAxIDAgNy43NSIvPjwvc3ZnPg==';
+                            }} 
+                        />
+                    </div>
+                    <h1 className="text-white text-3xl font-bold mb-4 drop-shadow-md">Marmita Fácil</h1>
+                    <p className="text-brand-50 text-base font-medium drop-shadow-sm">Tudo pronto!</p>
+                    <p className="text-brand-50 text-base font-medium drop-shadow-sm">Bom apetite :)</p>
+                </div>
+            );
+        };
+
         const Card = ({ children, className = "", onClick }) => {
             const hasBg = className.includes('bg-');
             const hasBorder = className.includes('border-');
@@ -969,7 +1001,7 @@
                                     <PreferenceBtn value="variada" label="Bem Variada" />
                                     <PreferenceBtn value="se_permitir" label="Se Permitir 🤤" />
                                 </div>
-                              
+                            
                             </div>
 
                             <Button onClick={handleGenerate} className="w-full py-4 text-lg bg-slate-800 hover:bg-slate-900 shadow-xl shadow-slate-900/20 mt-4">
@@ -1221,6 +1253,7 @@
         };
 
         const App = () => {
+            const [showSplash, setShowSplash] = useState(true);
             const [activeTab, setActiveTab] = useState('dashboard');
             
             const [ingredientsDb, setIngredientsDb] = useState(() => {
@@ -1239,6 +1272,12 @@
                 const saved = localStorage.getItem('mf_batchHistory');
                 return saved ? JSON.parse(saved) : [];
             });
+
+            // Lógica para esconder a Splash Screen
+            useEffect(() => {
+                const timer = setTimeout(() => setShowSplash(false), 2500);
+                return () => clearTimeout(timer);
+            }, []);
 
             // Salvamento Automático
             useEffect(() => { localStorage.setItem('mf_ingredients', JSON.stringify(ingredientsDb)); }, [ingredientsDb]);
@@ -1274,6 +1313,8 @@
             return (
                 <div className="min-h-screen relative max-w-md mx-auto bg-[#f8fafc] shadow-2xl overflow-hidden flex flex-col">
                     
+                    {showSplash && <SplashScreen />}
+
                     <div className="flex-1 overflow-y-auto overflow-x-hidden">
                         {activeTab === 'dashboard' && <DashboardScreen navigateTo={setActiveTab} batchData={batchData} batchHistory={batchHistory} />}
                         {activeTab === 'planner' && <PlannerScreen navigateTo={setActiveTab} updateBatchData={updateBatchData} ingredientsDb={ingredientsDb} setIngredientsDb={setIngredientsDb} recipesDb={recipesDb} />}
